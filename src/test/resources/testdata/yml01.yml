@@ -1,0 +1,29 @@
+# 具体的yaml/ yml文件的格式请参考官方文档 ,这里只做简单介绍
+# 1. 文件中的缩进一定要注意 , 类似于Python , 靠缩进来判断语义
+# 2. 本文中的 class , method ,name ,data 为内定的关键字 , 其使用格式如下文
+#   2.1 class: test class 的类名( 简单类名 , 非全类名)
+#   2.2 method: 测试类下的方法 (包含名称 和 数据两部分 , 是一个 list : List<Map<String,Object>> )
+#   2.3 name: 测试类下的测试方法名
+#   2.4 data: 测试方法的参数 ( 注意参数个数必须一致 , 类型也需一致.
+#             目前支持[int,float,double,long,String,boolean,BigDecimal,enum]
+#   2.5 data 是 List
+# 3. document的开始以 "---" 分割
+class: YmlParamTest
+method:
+  - name: yml_case01
+    data:
+      - ["zhangsan" ,18]
+      - ["lisi",20]
+
+  - name: yml_case02
+    data:
+      - "hello"
+      - 你好
+
+---
+class: YmlParamTest02
+method:
+  - name: yml_case01
+    data:
+      - [true, 天气不错]
+      - [false ,hello]

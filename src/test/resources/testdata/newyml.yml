@@ -1,0 +1,15 @@
+NewYmlTest01:
+  yml_case1_1:
+    - [zhangsan ,21]
+    - [lisi ,19]
+    - [`$name` ,`$age`]
+    - ["`${$name}123`" ,`$age`]
+    - ["${$.toUp( $name)}" ,"${$age}"]
+  yml_case1_2:
+    - "hello"
+    
+NewYmlTest02:
+  yml_case2_1:
+    - [wangwu ,90]
+  yml_case2_2:
+    - "hi"

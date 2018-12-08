@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="demo test">
+    <listeners>
+        <!-- 这里的监听是必须的 , 否则无法使用自定义参数化方法 -->
+        <listener class-name="yq.test.tesgngParams.feature.listener.ParamsListener"/>
+    </listeners>
+    <test name="login">
+        <packages>
+            <package name="com.yq.cases"/>
+        </packages>
+    </test>
+</suite>

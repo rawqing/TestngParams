@@ -1,0 +1,82 @@
+buildscript {
+    ext.group_Id = "yq.test"
+    ext.artifact_Id = "TestngParams"
+    ext.ver = "2.1"
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+//        classpath 'com.novoda:bintray-release:0.8.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+
+group "$group_Id"
+version "$ver"
+
+
+
+apply plugin: 'java'
+apply plugin: 'maven'
+//apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.jfrog.bintray'
+
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+//publishing {
+//    publications {
+//        MyPublication(MavenPublication) {
+//            from components.java
+//            groupId "$group_Id"
+//            artifactId "$artifact_Id"
+//            version "$ver"
+//        }
+//    }
+//}
+
+bintray {
+    user = 'rawqing'
+    key = '6e0e44e46019dac6030c0df50e1775213db64ecb'
+    pkg {
+        repo = 'maven'
+        name = "$artifact_Id"
+        userOrg = 'yqing'
+        version {
+            name = "$ver"
+            desc = "parameterize for testng."
+            released = new Date()
+            vcsTag = "$ver"
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/rawqing/TestngParams.git'
+        websiteUrl = 'https://github.com/rawqing/TestngParams'
+    }
+    configurations = ['archives']
+}
+
+//publish {
+//    userOrg = 'yqing'
+//    groupId = "$group_Id"
+//    artifactId = "$artifact_Id"
+//    publishVersion = "$ver"
+//    desc = 'testng params'
+//    website = "https://github.com/rawqing/TestngParams"
+//}
+
+dependencies {
+    compile 'org.testng:testng:6.10'
+    compile 'com.esotericsoftware.yamlbeans:yamlbeans:1.12'
+    compile 'org.beanshell:bsh:2.0b4'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
