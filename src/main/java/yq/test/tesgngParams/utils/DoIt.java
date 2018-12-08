@@ -227,7 +227,7 @@ public class DoIt {
      * @param <T>
      * @return
      */
-    public static <T>List distinct(List<T> list) {
+    public static <T>List<T> distinct(List<T> list) {
         HashSet<T> h = new HashSet<>(list);
         list.clear();
         list.addAll(h);

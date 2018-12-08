@@ -1,7 +1,7 @@
 buildscript {
     ext.group_Id = "yq.test"
     ext.artifact_Id = "TestngParams"
-    ext.ver = "2.1"
+    ext.ver = "2.2"
 
     repositories {
         jcenter()

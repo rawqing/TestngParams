@@ -27,11 +27,14 @@ public class HookParamsTest {
     public void t1() {
         String s = "${$.toUp( $name)}";
         String s1 = "`my name is ${$.toUp( $name)} , $age years old.`";
+        String s2 = "`my name is ${user.username} , ${user.age} years old , i say ${user.sayHello($name)}`";
         HooksExplain he = new HooksExplain();
         Object o = he.sentenceRes(s);
         Object o1 = he.explainStringTemplate(s1);
+        Object o2 = he.explainStringTemplate(s2);
         System.out.println(o);
         System.out.println(o1);
+        System.out.println(o2);
 
     }
     @Test
@@ -41,5 +44,11 @@ public class HookParamsTest {
         Object o = he.sentenceRes(s);
         System.out.println(o);
 
+    }
+
+    @Test
+    public void t3() {
+        HooksExplain he = new HooksExplain();
+        he.getMappingPath();
     }
 }
